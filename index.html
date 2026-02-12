@@ -6,38 +6,68 @@
     <title>Mis Enlaces</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f2f5;
+            background-color: #1a1a1a; /* Fondo oscuro para que resalten los botones */
+            color: white;
             padding: 20px;
         }
-        h1 { color: #333; }
+        h1 { margin-bottom: 30px; }
         .btn {
             display: block;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             padding: 15px;
             margin: 10px 0;
             text-align: center;
-            background-color: #007bff;
+            background-color: #ff4757; /* Color llamativo para TNT Sports */
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: bold;
-            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.3s;
         }
-        .btn:hover { background-color: #0056b3; }
+        .btn:hover {
+            background-color: #ff6b81;
+            transform: scale(1.05);
+        }
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <h1>Mi Lista de Enlaces</h1>
+    <h1>Mis Canales</h1>
 
-    <a href="https://google.com" class="btn">Ir a Google</a>
-    <a href="https://github.com" class="btn">Mi GitHub</a>
-    <a href="https://youtube.com" class="btn">Canal de YouTube</a>
+    <button class="btn" onclick="copiarEnlace(this, 'https://qbk4f.envivoslatam.org/hotflix/tntsports/index.m3u8?token=9ef0959f19ee7e916bd26aa1cbb54059e4c3d66d-f5-1770984847-1770930847&ip=186.60.63.49')">
+        Copiar TNT Sports
+    </button>
+
+    <script>
+        function copiarEnlace(boton, url) {
+            // Crea un campo de texto invisible para copiar
+            const el = document.createElement('textarea');
+            el.value = url;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            // Cambio visual temporal para confirmar que se copió
+            const textoOriginal = boton.innerText;
+            boton.innerText = "¡Copiado con éxito!";
+            boton.style.backgroundColor = "#2ed573";
+            
+            setTimeout(() => {
+                boton.innerText = textoOriginal;
+                boton.style.backgroundColor = "#ff4757";
+            }, 2000);
+        }
+    </script>
 
 </body>
 </html>
