@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Enlaces</title>
+    <title>Panel de Enlaces Protegido</title>
     <style>
+        /* Bloqueamos la selección de texto para evitar que inspeccionen los botones */
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #121212; /* Fondo más oscuro */
+            background-color: #121212;
             color: white;
             padding: 20px;
         }
+
         h1 { margin-bottom: 30px; color: #f0f0f0; }
-        
-        /* Contenedor para los botones */
+
         .container {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Espacio entre botones */
+            gap: 15px;
         }
 
         .btn {
@@ -38,84 +45,49 @@
             font-size: 16px;
             transition: 0.3s;
         }
-        .btn:hover { background-color: #ff6b81; transform: translateY(-2px); }
-        .btn:active { transform: translateY(0); }
 
-        /* Estilo para el segundo botón (puedes cambiarle el color si quieres) */
+        .btn:hover { background-color: #ff6b81; transform: translateY(-2px); }
         .btn-azul { background-color: #1e90ff; }
         .btn-azul:hover { background-color: #70a1ff; }
     </style>
 </head>
-<body>
-
-    <h1>Panel de Enlaces</h1>
+<body oncontextmenu="return false"> <h1>Panel de Enlaces</h1>
 
     <div class="container">
-        <button class="btn" onclick="copiarEnlace(this, 'https://wf6kt.envivoslatam.org/hotflix/tntsportschile/index.m3u8?token=52a764a6feec0fd4fc7810771de3ecabd610b03f-88-1771061353-1771007353&ip=186.60.0.2')">
-            18:00
-Primera División: Everton vs Huachipato
+        <button class="btn" onclick="copiarProtegido(this, 'aHR0cHM6Ly93ZjZrdC5lbnZpdm9zbGF0YW0ub3JnL2hvdGZsaXgvdG50c3BvcnRzY2hpbGUvaW5kZXgubTN1OD90b2tlbj01MmE3NjRhNmZlZWMwZmQ0ZmM3ODEwNzcxZGUzZWNhYmQ2MTBiMDNmLTg4LTE3NzEwNjEzNTMtMTc3MTAwNzM1MyZpcD0xODYuNjAuMC4y')">
+            18:00<br>Primera División: Everton vs Huachipato
         </button>
 
-        <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
-        </button>
-
-         <button class="btn btn-azul" onclick="copiarEnlace(this, 'https://mze7u.envivoslatam.org/hotflix/espn/index.m3u8?token=cf3c5d45c7a1e4526c71260bd978580a806a422d-77-1770988190-1770934190&ip=186.60.63.49')">
-            20:30
-Primera División: Palestino vs Universidad Chile
+        <button class="btn btn-azul" onclick="copiarProtegido(this, 'aHR0cHM6Ly9temU3dS5lbnZpdm9zbGF0YW0ub3JnL2hvdGZsaXgvZXNwbi9pbmRleC5tM3U4P3Rva2VuPWNmM2M1ZDQ1YzdhMWU0NTI2YzcxMjYwYmQ5Nzg1ODBhODA2YTQyMmQtNzctMTc3MDk4ODE5MC0xNzc0OTM0MTkwJmlwPTE4Ni42MC42My40OQ==')">
+            20:30<br>Primera División: Palestino vs U. Chile
         </button>
         
-    </div>
+        </div>
 
     <script>
-        function copiarEnlace(boton, url) {
+        function copiarProtegido(boton, hash) {
+            // 1. Decodificamos el Base64
+            let urlReal = atob(hash);
+            
+            // 2. Le agregamos una marca de agua de seguridad
+            // Esto hará que el enlace NO funcione en otros reproductores (VLC, Chrome)
+            let urlProtegida = "GOALSTREAM_SECURE_" + btoa(urlReal);
+
             const el = document.createElement('textarea');
-            el.value = url;
+            el.value = urlProtegida; // Copiamos la versión con "basura"
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
 
-            const textoOriginal = boton.innerText;
-            boton.innerText = "¡Copiado!";
-            
-            // Guardamos el color original
-            const colorOriginal = boton.style.backgroundColor;
+            // Efecto visual de copiado
+            const textoOriginal = boton.innerHTML;
+            boton.innerText = "¡Enlace Encriptado!";
+            const colorOriginal = getComputedStyle(boton).backgroundColor;
             boton.style.backgroundColor = "#2ed573";
             
             setTimeout(() => {
-                boton.innerText = textoOriginal;
+                boton.innerHTML = textoOriginal;
                 boton.style.backgroundColor = colorOriginal;
             }, 1500);
         }
@@ -123,10 +95,3 @@ Primera División: Palestino vs Universidad Chile
 
 </body>
 </html>
-
-
-
-
-
-
-
