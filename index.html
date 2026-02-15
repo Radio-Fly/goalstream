@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Enlaces Protegido</title>
     <style>
-        /* Bloqueamos la selección de texto para evitar que inspeccionen los botones */
+        /* Permitimos que el botón sea clickeable pero no el texto seleccionable */
         * {
             -webkit-user-select: none;
             user-select: none;
@@ -36,7 +36,7 @@
             width: 100%;
             padding: 18px;
             text-align: center;
-            background-color: #ff4757;
+            background-color: #1e90ff;
             color: white;
             border-radius: 12px;
             font-weight: bold;
@@ -46,55 +46,51 @@
             transition: 0.3s;
         }
 
-        .btn:hover { background-color: #ff6b81; transform: translateY(-2px); }
-        .btn-azul { background-color: #1e90ff; }
-        .btn-azul:hover { background-color: #70a1ff; }
+        .btn:active { transform: scale(0.98); }
     </style>
 </head>
-<body oncontextmenu="return false"> <h1>Panel de Enlaces</h1>
+<body oncontextmenu="return false">
+
+    <h1>Panel de Enlaces</h1>
 
     <div class="container">
-        
-<button class="btn" onclick="copiarProtegido(this, 'https://mze7u.envivoslatam.org/hotflix/tntsportschile/index.m3u8?token=8502af022ee65e534ff983bec77d8c17a24dfc10-3a-1771212478-1771158478&ip=186.60.0.2')">
-    TNT Sports Chile (HD)
-</button>
-        
-        </div>
+        <button class="btn" onclick="copiarProtegido(this, 'https://mze7u.envivoslatam.org/hotflix/tntsportschile/index.m3u8?token=8502af022ee65e534ff983bec77d8c17a24dfc10-3a-1771212478-1771158478&ip=186.60.0.2')">
+            TNT Sports Chile (HD)
+        </button>
+    </div>
 
     <script>
-        function copiarProtegido(boton, hash) {
-            // 1. Decodificamos el Base64
-            let urlReal = atob(hash);
-            
-            // 2. Le agregamos una marca de agua de seguridad
-            // Esto hará que el enlace NO funcione en otros reproductores (VLC, Chrome)
-            let urlProtegida = "GOALSTREAM_SECURE_" + btoa(urlReal);
+        function copiarProtegido(boton, urlOriginal) {
+            try {
+                // 1. Convertimos la URL normal a Base64 y le ponemos el prefijo
+                // btoa() convierte a Base64
+                let urlEncriptada = "GOALSTREAM_SECURE_" + btoa(urlOriginal);
 
-            const el = document.createElement('textarea');
-            el.value = urlProtegida; // Copiamos la versión con "basura"
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
+                // 2. Proceso de copiado
+                const el = document.createElement('textarea');
+                el.value = urlEncriptada;
+                document.body.appendChild(el);
+                el.select();
+                // Importante para móviles:
+                el.setSelectionRange(0, 99999); 
+                document.execCommand('copy');
+                document.body.removeChild(el);
 
-            // Efecto visual de copiado
-            const textoOriginal = boton.innerHTML;
-            boton.innerText = "¡Enlace Encriptado!";
-            const colorOriginal = getComputedStyle(boton).backgroundColor;
-            boton.style.backgroundColor = "#2ed573";
-            
-            setTimeout(() => {
-                boton.innerHTML = textoOriginal;
-                boton.style.backgroundColor = colorOriginal;
-            }, 1500);
+                // 3. Feedback visual
+                const textoOriginal = boton.innerHTML;
+                boton.innerText = "¡Copiado para la App!";
+                boton.style.backgroundColor = "#2ed573";
+                
+                setTimeout(() => {
+                    boton.innerHTML = textoOriginal;
+                    boton.style.backgroundColor = "#1e90ff";
+                }, 1500);
+            } catch (e) {
+                console.error("Error al copiar:", e);
+                alert("Error al procesar el enlace");
+            }
         }
     </script>
 
 </body>
 </html>
-
-
-
-
-
-
