@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Enlaces Protegido</title>
     <style>
-        /* Permitimos que el botón sea clickeable pero no el texto seleccionable */
         * {
             -webkit-user-select: none;
             user-select: none;
@@ -32,11 +31,11 @@
             gap: 15px;
         }
 
+        /* Clase base del botón */
         .btn {
             width: 100%;
             padding: 18px;
             text-align: center;
-            background-color: #1e90ff;
             color: white;
             border-radius: 12px;
             font-weight: bold;
@@ -46,6 +45,12 @@
             transition: 0.3s;
         }
 
+        /* Definición de colores específicos */
+        .btn-azul { background-color: #1e90ff; }
+        .btn-rojo { background-color: #ff4757; }
+        .btn-verde { background-color: #2ed573; }
+        .btn-amarillo { background-color: #ffa502; color: black; } /* Amarillo con letras negras para que se lea bien */
+
         .btn:active { transform: scale(0.98); }
     </style>
 </head>
@@ -54,99 +59,53 @@
     <h1>Panel de Enlaces</h1>
 
     <div class="container">
-        <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/4_.m3u8?token=fgZIUkLzTS0DrZwW7Z1h_A&expires=1771242612')">
-    ⚽TNT Sports
-</button>
-
-<button class="btn btn-azul" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/6_.m3u8?token=zWAyqBa4a_0txmmlF0hyiw&expires=1771242814')">
-    ⚽
-T&C SPORTS
-</button>
-
-<button class="btn btn-azul" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/11_.m3u8?token=z0LjTWYO4WrqoXunXMplWQ&expires=1771243014')">
-    ⚽ DSports
-</button>
-
-                <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/8_.m3u8?token=mKADOfInZM9ES2FckRjmIQ&expires=1771243358')">
-    ⚽Fox Sports
-</button>
-
-<button class="btn btn-rojo" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/1_.m3u8?token=kluhkIj5jTZkJf9VpBZTDg&expires=1771243629')">
-    ⚽ TUDN
-</button>
-
-<button class="btn btn-verde" onclick="copiarProtegido(this, 'https://ssout.marsrivagg.click/global/espn/index.m3u8?token=c5f2234d648f8daa8989b8909085a9d5edeb1c26-49-1771219537-1771165537&ip=186.60.0.2')">
-    ⚽ 20:30
-Primera División: Central Español vs Peñarol
-</button>
-
-                <button class="btn btn-amarillo" onclick="copiarProtegido(this, 'https://mze7u.envivoslatam.org/hotflix/tntsportschile/index.m3u8?token=8502af022ee65e534ff983bec77d8c17a24dfc10-3a-1771212478-1771158478&ip=186.60.0.2')">
-    ⚽ 20:30
-Campeonato Paulista A1: São Bernardo vs Corinthians
-</button>
-
-<button class="btn btn-azul" onclick="copiarProtegido(this, 'https://ub2dr.envivoslatam.org/hotflix/fox/index.m3u8?token=d6538eeecb6f252afa1091ff551355a7c91547f8-b2-1771216217-1771162217&ip=186.60.0.2')">
-    ⚽ 20:30
-Campeonato Carioca: Ypiranga Erechim vs Internacional
-</button>
-
-<button class="btn btn-azul" onclick="copiarProtegido(this, 'https://ssout.marsrivagg.click/global/espn/index.m3u8?token=c5f2234d648f8daa8989b8909085a9d5edeb1c26-49-1771219537-1771165537&ip=186.60.0.2')">
-    ⚽ 20:30
-Campeonato Paulista A1: Santos vs Velo Clube
-</button>
-
-        <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://anvtcax.fubohd.com/hypermotion1/mono.m3u8?token=bb43ad3da7eda64df7bfb99ec62578e37dc32a3d-cc-1771191961-1771173961')">
-    ⚽ 20:30
-Primera División: Colo-Colo vs Unión La Calera
-</button>
-
- <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://las12.marsrivagg.click/global/tntar/index.m3u8?token=ea978afc3a41fbeb5ef58c01533122d27d2f6190-ed-1771252402-1771198402&ip=186.60.0.2')">
-    ⚽ 22:00
-Liga Profesional: Rosario Central vs Barracas Central
-</button>
-
-         <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://ssout.marsrivagg.click/global/espnpremium/index.m3u8?token=eadb00aba5c5028e9ae8c97795628ed131114a76-1e-1771252327-1771198327&ip=186.60.0.2')">
-    ⚽ 22:00
-Liga Profesional: Instituto vs Central Córdoba SdE
-</button>
-
-         <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://ssout.marsrivagg.click/global/winplus/index.m3u8?token=ded5ea2c33b77779d6096ad85457faf88d2240ef-87-1771252160-1771198160&ip=186.60.0.2')">
-    ⚽ 22:30
-bandera
-Primera A: Fortaleza CEIF vs Boyacá Chicó
-</button>
-
-
- 
+        <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://URL_EJEMPLO')">⚽ TNT Sports</button>
+        <button class="btn btn-azul" onclick="copiarProtegido(this, 'https://URL_EJEMPLO')">⚽ T&C SPORTS</button>
         
+        <button class="btn btn-rojo" onclick="copiarProtegido(this, 'https://deportes.ksdjugfsddeports.com:9092/MTg2LjYwLjAuMg==/1_.m3u8?token=kluhkIj5jTZkJf9VpBZTDg&expires=1771243629')">
+            ⚽ TUDN (ROJO)
+        </button>
+
+        <button class="btn btn-verde" onclick="copiarProtegido(this, 'https://URL_EJEMPLO')">
+            ⚽ Central Español vs Peñarol
+        </button>
+
+        <button class="btn btn-amarillo" onclick="copiarProtegido(this, 'https://URL_EJEMPLO')">
+            ⚽ São Bernardo vs Corinthians
+        </button>
     </div>
 
     <script>
         function copiarProtegido(boton, urlOriginal) {
             try {
-                // 1. Convertimos la URL normal a Base64 y le ponemos el prefijo
-                // btoa() convierte a Base64
+                // Guardamos el color original que tiene el botón antes de cambiarlo
+                const colorOriginal = window.getComputedStyle(boton).backgroundColor;
+                const textoOriginal = boton.innerHTML;
+
+                // 1. Encriptación
                 let urlEncriptada = "GOALSTREAM_SECURE_" + btoa(urlOriginal);
 
-                // 2. Proceso de copiado
+                // 2. Copiado
                 const el = document.createElement('textarea');
                 el.value = urlEncriptada;
                 document.body.appendChild(el);
                 el.select();
-                // Importante para móviles:
                 el.setSelectionRange(0, 99999); 
                 document.execCommand('copy');
                 document.body.removeChild(el);
 
                 // 3. Feedback visual
-                const textoOriginal = boton.innerHTML;
                 boton.innerText = "¡Copiado para la App!";
-                boton.style.backgroundColor = "#2ed573";
+                boton.style.backgroundColor = "#ffffff"; // Cambia a blanco al copiar
+                boton.style.color = "#000000"; 
                 
                 setTimeout(() => {
                     boton.innerHTML = textoOriginal;
-                    boton.style.backgroundColor = "#1e90ff";
+                    // Restauramos el color original que guardamos al principio
+                    boton.style.backgroundColor = colorOriginal;
+                    boton.style.color = (boton.classList.contains('btn-amarillo')) ? "black" : "white";
                 }, 1500);
+
             } catch (e) {
                 console.error("Error al copiar:", e);
                 alert("Error al procesar el enlace");
@@ -156,39 +115,3 @@ Primera A: Fortaleza CEIF vs Boyacá Chicó
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
